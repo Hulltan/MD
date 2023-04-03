@@ -7,8 +7,6 @@ import mysql.connector
 import altair as alt
 
 
-print('Hello World')
-
 @st.cache_resource
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
@@ -21,6 +19,8 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
+def create_dataframe(data, columns):
+    return pd.DataFrame(data, columns=columns)
 
 # Histogram
 # Qual é a taxa de participação no ENEM em cada bairro do Recife
