@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.figure_factory as ff
 import matplotlib.pyplot as plt
-import mysql.connector
 import altair as alt
+import mysql.connector
+import plotly.graph_objs as go
 import plotly.express as px
-
 
 @st.cache_resource
 def init_connection():

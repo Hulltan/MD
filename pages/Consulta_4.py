@@ -1,4 +1,4 @@
-from project import *
+from Project import *
 
 # Carrega os dados do ENEM
 consulta_4 = run_query("SELECT DD.ANO, DP.NU_INSCRICAO, DLF.CO_MUNICIPIO_PROVA, NU_NOTA_CN, NU_NOTA_CH, NU_NOTA_LC, NU_NOTA_MT, NU_NOTA_REDACAO FROM enem_dw.fatoProva AS FP  JOIN enem_dw.dimData AS DD ON DD.id=FP.dimData_id JOIN enem_dw.dimParticipante AS DP ON DP.id=FP.dimParticipante_id JOIN enem_dw.dimLocalicadeFeito AS DLF ON DLF.id=FP.dimLocalicadeFeito_id;")

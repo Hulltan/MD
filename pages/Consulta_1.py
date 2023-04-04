@@ -1,4 +1,4 @@
-from project import *
+from Project import *
 
 
 consulta_1 = run_query("SELECT count(dimParticipante_id) as Paticipantes, ANO as Anos FROM enem_dw.fatoProva join (select id, ANO from dimData) as sData where fatoProva.dimData_id = sData.id and fatoProva.dimLocalicadeFeito_id = 1 group by Anos;")
