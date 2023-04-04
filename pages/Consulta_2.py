@@ -1,6 +1,6 @@
 from project import *
 
-consulta_2 = run_query("SELECT ANO as Anos, count(dimParticipante_id) as Paticipantes, MED_RENDA_MENSAL as Media_Renda_Mensal FROM enem_dw.fatoprova join (select id, ANO from dimdata) as sData where fatoprova.dimData_id = sData.id and fatoprova.dimLocalicadeFeito_id = 1 and MED_RENDA_MENSAL > 0 group by Anos, MED_RENDA_MENSAL;")
+consulta_2 = run_query("SELECT ANO as Anos, count(dimParticipante_id) as Paticipantes, MED_RENDA_MENSAL as Media_Renda_Mensal FROM enem_dw.fatoProva join (select id, ANO from dimData) as sData where fatoProva.dimData_id = sData.id and fatoProva.dimLocalicadeFeito_id = 1 and MED_RENDA_MENSAL > 0 group by Anos, MED_RENDA_MENSAL;")
 columns = ['Ano', 'Quantidade_de_Participante_por_Renda_Mensal', 'Media_Renda_Mensal']
 dados = create_dataframe(consulta_2, columns)
 chart = alt.Chart(dados).mark_circle().encode(x='Ano', y='Media_Renda_Mensal', size='Quantidade_de_Participante_por_Renda_Mensal')

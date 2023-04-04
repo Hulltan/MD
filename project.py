@@ -5,6 +5,7 @@ import plotly.figure_factory as ff
 import matplotlib.pyplot as plt
 import mysql.connector
 import altair as alt
+import plotly.express as px
 
 
 @st.cache_resource
