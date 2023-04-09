@@ -6,5 +6,5 @@ columns = ['Participante', 'Ano']
 dataFrame = create_dataframe(consulta_1, columns)
 st.title('Quantidade de participantes por Ano')
 st.bar_chart(data=dataFrame, x='Ano', y='Participante')
-
+st.captiom('Neste gráfico de barras é representada a quantidade de estudantes matriculados em escolas do Recife que participaram do ENEM ao longo dos anos. O eixo X representa os anos e o eixo Y representa a quantidade de participantes.')
 st.write(dataFrame)

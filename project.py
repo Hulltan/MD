@@ -22,7 +22,4 @@ def run_query(query):
 def create_dataframe(data, columns):
     return pd.DataFrame(data, columns=columns)
 
-# Histogram
-# Qual é a taxa de participação no ENEM em cada bairro do Recife
-# e como isso mudou ao longo dos anos?
 
