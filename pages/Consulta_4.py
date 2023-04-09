@@ -1,4 +1,4 @@
-from Project import *
+from project import *
 
 # Carrega os dados do ENEM
 consulta_4 = run_query("SELECT DD.ANO, DP.NU_INSCRICAO, DLF.CO_MUNICIPIO_PROVA, NU_NOTA_CN, NU_NOTA_CH, NU_NOTA_LC, NU_NOTA_MT, NU_NOTA_REDACAO FROM enem_dw.fatoProva AS FP  JOIN enem_dw.dimData AS DD ON DD.id=FP.dimData_id JOIN enem_dw.dimParticipante AS DP ON DP.id=FP.dimParticipante_id JOIN enem_dw.dimLocalicadeFeito AS DLF ON DLF.id=FP.dimLocalicadeFeito_id;")
@@ -6,6 +6,10 @@ df = create_dataframe(consulta_4, columns=['ano', 'inscricao', 'co_municipio_pro
 
 # Define o título da página
 st.title('Análise das notas por Escola')
+st.write("""Este gráfico de caixa (box plot) exibe a distribuição das notas de cada 
+         área de conhecimento (Ciências da Natureza, Ciências Humanas, Linguagens e 
+         Códigos e Matemática) ao longo dos anos para uma escola específica selecionada.
+         """)
 
 # Filtra os dados pela escola selecionada
 escola = st.selectbox('Selecione uma escola', df['co_municipio_prova'].unique())

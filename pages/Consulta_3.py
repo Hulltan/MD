@@ -1,4 +1,4 @@
-from Project import *
+from project import *
 
 
 consulta_3 = run_query("SELECT avg(NU_NOTA_CH) as CH, avg(NU_NOTA_CN) as CN, avg(NU_NOTA_LC) as LC, avg(NU_NOTA_MT) as MT, avg(NU_NOTA_REDACAO) as REDACAO, ANO as Anos, tp_escola as Tipo_de_escola, count(tp_escola) as Participante_por_tipo_de_escola FROM enem_dw.fatoprova join (select id, ANO from dimdata) as sData join (select id, TP_ESCOLA from dimparticipante) as part where fatoprova.dimData_id = sData.id and fatoprova.dimLocalicadeFeito_id = 1 and fatoprova.dimParticipante_id = part.id group by Anos, Tipo_de_escola;")
@@ -32,6 +32,12 @@ chart = alt.Chart(df_melted).mark_line().encode(
     color='AREA:N',
     strokeDash='AREA:N'
 )
+st.title('Gráfico de notas por área e tipo de escola ')
+st.write("""Este gráfico mostra a média das notas de cada área (Ciências Humanas, 
+         Ciências da Natureza, Linguagens e Códigos, Matemática e Redação) por ano 
+         e por tipo de escola (pública ou privada). As áreas selecionadas estão destacadas 
+         em cores diferentes e podem ser escolhidas usando o menu suspenso 'Selecionar 
+         notas'.""")
 st.altair_chart(chart, use_container_width=True)
 st.table(dataFrame)
 

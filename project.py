@@ -22,4 +22,8 @@ def run_query(query):
 def create_dataframe(data, columns):
     return pd.DataFrame(data, columns=columns)
 
+st.write("# Dados ENEM")
+st.markdown("""Selecione uma das consultas ao lado para visualizar 
+            informações sobre dados do ENEM realizados entre 2019 e 2021""")
+
 
